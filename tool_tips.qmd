@@ -1,0 +1,51 @@
+---
+title: "Alt text hover overs"
+format:
+  html:
+    # Table of Contents options
+    toc: false
+    toc-depth: 3
+    toc-location: left
+    toc-title: Contents
+    number-sections: false
+    number-depth: 3
+    # Render options
+    theme: cosmo
+    css: tool.css
+
+editor: visual
+---
+
+## Tool tips and hover overs
+
+Sometimes it is nice to have some alternative text hover overs to more fully expand on a point.  The lovely library allows you to create alt text pop ups, without having to mess about with CSS and HTML.
+
+This is a [**tool tip**]{id='tool_tip_one'}.  The stars are markdown formatting to make the text bold.
+
+Reusing the same tool tip on "[*different text*]{id='tool_tip_one'}".
+
+A different [**tool tip**]{id='tool_tip_two'}  altogether.
+
+```{r}
+
+# Specify required packages
+my_packages <- c("tippy",
+                 "pacman") 
+
+# Extract not installed packages
+not_installed <- my_packages[!(my_packages %in% installed.packages()[ , "Package"])]  
+
+# Install not installed packages
+if(length(not_installed)) install.packages(not_installed)   
+
+# Load all packages
+pacman::p_load(char = my_packages) 
+
+# create the tool tips
+tippy_this(elementId = "tool_tip_one", tooltip = "This is the expanded text")
+tippy_this(elementId = "tool_tip_two", tooltip = "Tippy mc tipface")#
+
+
+  
+```
+
